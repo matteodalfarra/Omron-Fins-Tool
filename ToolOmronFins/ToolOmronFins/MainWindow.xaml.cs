@@ -235,8 +235,7 @@ namespace ToolOmronFins
         static string GetNumericValue(EtherNetPLC ENT, string node)
         {
             ENT.ReadInt32(node, out int result);
-            float val = (float)result / 10;
-            return node.StartsWith("W") ? val.ToString("F1") : val.ToString();
+            return node.StartsWith("W") ? result.ToString("F1") : result.ToString();
         }
 
         static string ReadNode(EtherNetPLC ENT, string node)
